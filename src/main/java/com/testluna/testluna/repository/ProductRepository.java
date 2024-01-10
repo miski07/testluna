@@ -1,4 +1,4 @@
-package com.testluna.testluna;
+package com.testluna.testluna.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,5 +10,5 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<product, String> {
-    List<product>findAll();
+    List<product>findAll();    
 }
