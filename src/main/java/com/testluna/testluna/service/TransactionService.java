@@ -56,12 +56,13 @@ public class TransactionService {
         return idx+1;
 
     }
-    public transaction createTransaction(com.testluna.testluna.model.skeletons.cart cart, int type){
+    public transaction createTransaction(com.testluna.testluna.model.skeletons.cart cart, int type,String email){
         transaction_base transaction = new transaction_base();
         transaction.invoiceno= cart.invoiceNo;
         transaction.invoicedate = cart.invoiceDate;
         transaction.note = cart.note;
         transaction.status = type;
+        transaction.email= email;
         transactionBaseRepository.save(transaction);
         for(items i : cart.itemLines ){            
             product_transaction_base cartItems = new product_transaction_base();

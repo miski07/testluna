@@ -10,5 +10,4 @@ public class TestlunaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TestlunaApplication.class, args);
 	}
-
 }

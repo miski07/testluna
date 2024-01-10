@@ -123,20 +123,19 @@ public class TransactionController {
     }
     
     @PostMapping("/purchase/")
-    public transaction createTransactionPurchase(@RequestBody cart cart) {
-        return createTransaction(cart, 1);
+    public transaction createTransactionPurchase(@RequestBody cart cart,@RequestHeader String token) {
+        return createTransaction(cart, 1,token);
     }
-    public transaction createTransaction(cart cart, int type){
+    public transaction createTransaction(cart cart, int type,String email){
         
         if(cart.invoiceNo==null || cart.invoiceNo=="string"){
             cart.invoiceNo= "T-"+transactionService.getLatestDefaultTransactionID();
         }
-        return transactionService.createTransaction(cart,type);
+        return transactionService.createTransaction(cart,type,email);
     }
     @PostMapping("/sales/")
-    public transaction createTransactionSales(@RequestBody cart cart) {
-        
-        return createTransaction(cart, 2);
+    public transaction createTransactionSales(@RequestBody cart cart, @RequestHeader String token) {
+        return createTransaction(cart, 2, token);
     }
 
     

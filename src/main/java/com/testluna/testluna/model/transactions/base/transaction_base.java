@@ -16,5 +16,6 @@ public class transaction_base {
     @Column(name="transaction_date", columnDefinition = "timestamp(6) without time zone")
     public Date invoicedate;
     public String note;   
+    public String email;
     public Integer status;
 }
